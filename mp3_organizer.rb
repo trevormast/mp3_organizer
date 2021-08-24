@@ -18,7 +18,9 @@ class Mp3Organizer
 
       puts mp3_file.to_s 
 
-      mp3_file.copy_to(create_artist_album_directory(mp3_file.metadata[:artist], mp3_file.metadata[:album]))
+      artist_album_directory_path = create_artist_album_directory(mp3_file.metadata[:artist], mp3_file.metadata[:album])
+
+      mp3_file.copy_to(artist_album_directory_path)
 
       mp3_file.close
     end
